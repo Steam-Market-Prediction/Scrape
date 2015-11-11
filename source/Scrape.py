@@ -6,9 +6,12 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_v1_5
 import base64
 import cookielib
+import requests
 
-uname = "----"
-passwd = "----"
+
+#steam.market.prediction@gmail.com
+uname = "steam_market_prediction"
+passwd = "{7cx6%gR^~Z9/6jc"
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 
 # Request key
@@ -20,6 +23,8 @@ req = urllib2.Request(url, post, headers)
 response = urllib2.urlopen(req).read()
 data = json.loads(response)
 
+print response
+print "==============================================================="
 print "Get Key Success:", data["success"]
 
 # Encode key
@@ -46,8 +51,10 @@ values2 = {
 headers2 = { 'User-Agent' : user_agent }
 post2 = urllib.urlencode(values2)
 req2 = urllib2.Request(url2, post2, headers)
-response2 = urllib2.urlopen(req2).read()
+resp = urllib2.urlopen(req2)
+response2 = resp.read()
 data2 = json.loads(response2)
+cookie = resp.headers.get('Set-Cookie')
 
 if data2["success"]:
         print "Logged in!"
@@ -55,9 +62,13 @@ else:
         print "Error, could not login:", data2["message"]
 
 print response2
-'''
-cookie = {'steamLogin': '76561198058933558%7C%7C2553658936E891AAD'}    
-data = requests.get('http://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=730&market_hash_name=Falchion%20Case', cookies=cookie);
+print "==============================================================="
+for element in cookie:
+	print element
 
-print(data);
-'''
+#cookie = {'steamLogin': data2["transfer_parameters"]["steamid"]}    
+
+data = requests.get('http://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=730&market_hash_name=Falchion%20Case');
+
+print "==============================================================="
+print data
