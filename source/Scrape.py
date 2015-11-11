@@ -63,11 +63,17 @@ else:
 
 print response2
 print "==============================================================="
-for element in cookie:
-	print element
+print cookie
+cookie_search = "steamLogin="
+idx = cookie.find(cookie_search)
+steamLogin = ""
+while cookie[idx + len(cookie_search)] != ';':
+	steamLogin += cookie[idx + len(cookie_search)]
+	idx+=1;
+print steamLogin
 
-#cookie = {'steamLogin': data2["transfer_parameters"]["steamid"]}    
-
+cookie = {'steamLogin': steamLogin}    
+print cookie
 data = requests.get('http://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=730&market_hash_name=Falchion%20Case');
 
 print "==============================================================="
