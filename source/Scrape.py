@@ -72,9 +72,8 @@ while cookie[idx + len(cookie_search)] != ';':
 	idx+=1;
 print steamLogin
 
-cookie = {'steamLogin': steamLogin}    
+cookie = {'steamLogin': steamLogin}
 print cookie
-data = requests.get('http://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=730&market_hash_name=Falchion%20Case');
-
+data = requests.get('http://steamcommunity.com/market/pricehistory/?country=DE&currency=3&appid=440&market_hash_name=Specialized%20Killstreak%20Brass%20Beast', cookies=cookie);
 print "==============================================================="
 print data
