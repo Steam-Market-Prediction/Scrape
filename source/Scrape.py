@@ -10,8 +10,10 @@ import requests
 
 
 #steam.market.prediction@gmail.com
-uname = "steam_market_prediction"
-passwd = "{7cx6%gR^~Z9/6jc"
+#uname = "steam_market_prediction"
+#passwd = "{7cx6%gR^~Z9/6jc"
+uname=""
+passwd=""
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 
 # Request key
@@ -56,6 +58,29 @@ response2 = resp.read()
 data2 = json.loads(response2)
 cookie = resp.headers.get('Set-Cookie')
 
+print "Check your email and enter the auth code:"
+auth_code = raw_input()
+url2 = 'https://steamcommunity.com/login/dologin/'
+values2 = {
+        'username' : uname,
+        "password": base64.b64encode(cipher.encrypt(passwd)),
+        "emailauth": auth_code,
+        "loginfriendlyname": "",
+        "captchagid": "-1",
+        "captcha_text": "",
+        "emailsteamid": "",
+        "rsatimestamp": data["timestamp"],
+        "remember_login": False,
+        "donotcache": str(int(time.time()*1000)),
+}
+headers2 = { 'User-Agent' : user_agent }
+post2 = urllib.urlencode(values2)
+req2 = urllib2.Request(url2, post2, headers)
+resp = urllib2.urlopen(req2)
+response2 = resp.read()
+data2 = json.loads(response2)
+cookie = resp.headers.get('Set-Cookie')
+
 if data2["success"]:
         print "Logged in!"
 else:
@@ -74,6 +99,6 @@ print steamLogin
 
 cookie = {'steamLogin': steamLogin}
 print cookie
-data = requests.get('http://steamcommunity.com/market/pricehistory/?country=DE&currency=3&appid=440&market_hash_name=Specialized%20Killstreak%20Brass%20Beast', cookies=cookie);
+data = requests.get('http://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=570&market_hash_name=Dragonclaw%20Hook', cookies=cookie);
 print "==============================================================="
 print data
