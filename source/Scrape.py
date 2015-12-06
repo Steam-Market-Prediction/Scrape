@@ -75,10 +75,15 @@ response2 = resp.read()
 data2 = json.loads(response2)
 cookie = resp.headers.get('Set-Cookie')
 
+LoggedIn = True
 if data2["success"]:
         print "Logged in!"
 else:
         print "Error, could not login:", data2["message"]
+        LoggedIn = False
+
+if not LoggedIn:
+        quit()
 
 cookie_search = "steamLogin="
 idx = cookie.find(cookie_search)
