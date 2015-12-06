@@ -8,6 +8,7 @@ import base64
 import cookielib
 import requests
 import getpass
+import os
 
 uname = raw_input('Username: ')
 passwd = getpass.getpass()
@@ -89,5 +90,10 @@ while cookie[idx + len(cookie_search)] != ';':
 
 cookie = {'steamLogin': steamLogin}
 
-data = requests.get('http://steamcommunity.com/market/pricehistory/?country=US&currency=3&appid=570&market_hash_name=Dragonclaw%20Hook', cookies=cookie);
-print data
+with open("items.txt", 'r') as itemList:
+        for line in itemList:
+                line = line.strip("\n")
+                data = requests.get('http://steamcommunity.com/market/pricehistory/?country=US&currency=3&appid=570&market_hash_name=' + line, cookies=cookie);
+                direct = '/MarketList/' 
+                with open("Market List/" + line + ".txt", 'a') as itemStats:
+                        itemStats.write(data.text)
