@@ -13,6 +13,7 @@ import requests
 #passwd = "{7cx6%gR^~Z9/6jc"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 print "Enter your steam login id:"
 uname=raw_input()
@@ -21,11 +22,16 @@ passwd = raw_input()
 =======
 =======
 >>>>>>> b966308... Changed login to prompt for login ID and password
+=======
+>>>>>>> b966308... Changed login to prompt for login ID and password
 print "Enter your steam login id:"
 uname=raw_input()
 print "Enter your password:"
 passwd raw_input()
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> b966308... Changed login to prompt for login ID and password
+=======
 >>>>>>> b966308... Changed login to prompt for login ID and password
 =======
 >>>>>>> b966308... Changed login to prompt for login ID and password
