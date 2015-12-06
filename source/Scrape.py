@@ -7,6 +7,7 @@ from Crypto.Cipher import PKCS1_v1_5
 import base64
 import cookielib
 import requests
+import getpass
 
 #steam.market.prediction@gmail.com
 #uname = "steam_market_prediction"
@@ -15,7 +16,7 @@ import requests
 print "Enter your steam login id:"
 uname = raw_input()
 print "Enter your password:"
-passwd = raw_input()
+passwd = getpass.getpass()
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 
 # Request key
