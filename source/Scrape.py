@@ -9,10 +9,6 @@ import cookielib
 import requests
 import getpass
 
-#steam.market.prediction@gmail.com
-#uname = "steam_market_prediction"
-#passwd = "{7cx6%gR^~Z9/6jc"
-
 print "Enter your steam login id:"
 uname = raw_input()
 print "Enter your password:"
