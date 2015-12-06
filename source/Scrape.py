@@ -9,9 +9,7 @@ import cookielib
 import requests
 import getpass
 
-print "Enter your steam login id:"
-uname = raw_input()
-print "Enter your password:"
+uname = raw_input('Username: ')
 passwd = getpass.getpass()
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 
@@ -24,8 +22,6 @@ req = urllib2.Request(url, post, headers)
 response = urllib2.urlopen(req).read()
 data = json.loads(response)
 
-print response
-print "==============================================================="
 print "Get Key Success:", data["success"]
 
 # Encode key
@@ -33,7 +29,6 @@ mod = long(str(data["publickey_mod"]), 16)
 exp = long(str(data["publickey_exp"]), 16)
 rsa = RSA.construct((mod, exp))
 cipher = PKCS1_v1_5.new(rsa)
-print base64.b64encode(cipher.encrypt(passwd))
 
 # Login
 url2 = 'https://steamcommunity.com/login/dologin/'
@@ -85,20 +80,14 @@ if data2["success"]:
 else:
         print "Error, could not login:", data2["message"]
 
-print response2
-print "==============================================================="
-print cookie
 cookie_search = "steamLogin="
 idx = cookie.find(cookie_search)
 steamLogin = ""
 while cookie[idx + len(cookie_search)] != ';':
 	steamLogin += cookie[idx + len(cookie_search)]
 	idx+=1;
-print steamLogin
 
 cookie = {'steamLogin': steamLogin}
-print cookie
 
 data = requests.get('http://steamcommunity.com/market/pricehistory/?country=US&currency=3&appid=570&market_hash_name=Dragonclaw%20Hook', cookies=cookie);
-print "==============================================================="
-print data.text
+print data
