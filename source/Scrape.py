@@ -11,30 +11,11 @@ import requests
 #steam.market.prediction@gmail.com
 #uname = "steam_market_prediction"
 #passwd = "{7cx6%gR^~Z9/6jc"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 print "Enter your steam login id:"
-uname=raw_input()
+uname = raw_input()
 print "Enter your password:"
 passwd = raw_input()
-=======
-=======
->>>>>>> b966308... Changed login to prompt for login ID and password
-=======
->>>>>>> b966308... Changed login to prompt for login ID and password
-print "Enter your steam login id:"
-uname=raw_input()
-print "Enter your password:"
-passwd raw_input()
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> b966308... Changed login to prompt for login ID and password
-=======
->>>>>>> b966308... Changed login to prompt for login ID and password
-=======
->>>>>>> b966308... Changed login to prompt for login ID and password
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 
 # Request key
