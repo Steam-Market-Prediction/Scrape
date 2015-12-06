@@ -99,6 +99,7 @@ print steamLogin
 
 cookie = {'steamLogin': steamLogin}
 print cookie
-data = requests.get('http://steamcommunity.com/market/pricehistory/?country=PT&currency=3&appid=570&market_hash_name=Dragonclaw%20Hook', cookies=cookie);
+
+data = requests.get('http://steamcommunity.com/market/pricehistory/?country=US&currency=3&appid=570&market_hash_name=Dragonclaw%20Hook', cookies=cookie);
 print "==============================================================="
-print data
+print data.text
