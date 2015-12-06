@@ -8,7 +8,6 @@ import base64
 import cookielib
 import requests
 
-
 #steam.market.prediction@gmail.com
 #uname = "steam_market_prediction"
 #passwd = "{7cx6%gR^~Z9/6jc"
