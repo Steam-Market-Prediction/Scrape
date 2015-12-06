@@ -9,6 +9,7 @@ import cookielib
 import requests
 import getpass
 import os
+import sys
 
 uname = raw_input('Username: ')
 passwd = getpass.getpass()
@@ -90,6 +91,7 @@ while cookie[idx + len(cookie_search)] != ';':
 
 cookie = {'steamLogin': steamLogin}
 
+status = 0.0
 with open("items.txt", 'r') as itemList:
         for line in itemList:
                 line = line.strip("\n")
@@ -97,3 +99,7 @@ with open("items.txt", 'r') as itemList:
                 direct = '/MarketList/' 
                 with open("Market List/" + line + ".txt", 'a') as itemStats:
                         itemStats.write(data.text)
+                status = status + 1
+                print (status/6508) * 100
+
+
